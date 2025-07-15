@@ -284,91 +284,150 @@
 Додайте методи для додавання та витрати коштів, а також для виведення історії
 транзакцій.
 
----
-
-## Example 1 - Масив об'єктів
-
-Напишіть ф-цію `calcTotalPrice(stones, stoneName)`, яка приймає масив об'єктів
-та рядок з назвою каменю. Ф-ція вважає та повертає загальну вартість каміння з
-таким ім'ям, ціною та кількістю з об'єкта
-
-### Код
+# This
 
 ```js
-const stones = [
-  { name: 'Смарагд', price: 1300, quantity: 4 },
-  { name: 'Діамант', price: 2700, quantity: 3 },
-  { name: 'Сапфір', price: 400, quantity: 7 },
-  { name: 'Щебінь', price: 200, quantity: 2 },
-];
-```
+//!======================================================
+// TASK№1
+function greet() {
+  console.log(this);
+}
 
-## Example 2 - Комплексні завдання
-
-Напиши скрипт управління особистим кабінетом інтернет-банку. Є об'єкт `account`
-в якому необхідно реалізувати методи для роботи з балансом та історією
-транзакцій.
-
-```js
-/*
- * Типів транзацький лише два.
- * Можна покласти чи зняти гроші з рахунку.
- */
-const Transaction = {
-  DEPOSIT: 'deposit',
-  WITHDRAW: 'withdraw',
+const person = {
+  name: 'Olga',
+  sayHi: greet,
 };
 
-/*
- * Кожна транзакція це об'єкт із властивостями: id, type та amount
- */
+const ref = person.sayHi;
+ref();
+//!======================================================
 
-const account = {
-  // Поточний баланс рахунку
-  balance: 0,
-
-  // Історія транзакцій
-  transactions: [],
-
-  /*
-   * Метод створює та повертає об'єкт транзакції.
-   * Приймає суму та тип транзакції.
-   */
-  createTransaction(amount, type) {},
-
-  /*
-   * Метод, що відповідає за додавання суми до балансу.
-   * Приймає суму танзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * після чого додає його в історію транзакцій
-   */
-  deposit(amount) {},
-
-  /*
-   * Метод, що відповідає за зняття суми з балансу.
-   * Приймає суму танзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * Після чого додає його в історію транзакцій.
-   *
-   * Якщо amount більше ніж поточний баланс, виводь повідомлення
-   * про те, що зняття такої суми не можливе, недостатньо коштів.
-   */
-  withdraw(amount) {},
-
-  /*
-   * Метод повертає поточний баланс
-   */
-  getBalance() {},
-
-  /*
-   * Метод шукає та повертає об'єкт транзації по id
-   */
-  getTransactionDetails(id) {},
-
-  /*
-   * Метод повертає кількість коштів
-   * певного типу транзакції з усієї історії транзакцій
-   */
-  getTransactionTotal(type) {},
+//!======================================================
+// TASK№2
+const obj = {
+  name: 'Test',
+  method: function () {
+    console.log(this);
+    return () => {
+      console.log(this);
+    };
+  },
 };
+
+const arrow = obj.method();
+arrow();
+//!======================================================
+//!======================================================
+// TASK№3
+function whoIsThis() {
+  console.log(this);
+}
+
+const bound = whoIsThis.bind({ name: 'Bound context' });
+
+const callLater = fn => fn();
+
+callLater(bound);
+//!======================================================
+//!======================================================
+// TASK№4
+const user = {
+  name: 'Alice',
+  showName: function () {
+    console.log(this.name);
+  },
+};
+
+setTimeout(user.showName, 100);
+//!======================================================
+//!======================================================
+// TASK№5
+function showThis(a, b) {
+  console.log(this, a, b);
+}
+
+showThis.call({ x: 10 }, 1, 2);
+showThis.apply({ x: 20 }, [3, 4]);
+//!======================================================
+//!======================================================
+// TASK№6
+const name = 'Global';
+
+const obj = {
+  name: 'Object',
+  show: function () {
+    console.log(this.name);
+    const nested = function () {
+      console.log(this.name);
+    };
+    nested();
+  },
+};
+
+obj.show();
+//!======================================================
+//!======================================================
+// TASK№7
+const a = {
+  name: 'A',
+  say: function () {
+    console.log(this.name);
+  },
+};
+
+const b = {
+  name: 'B',
+};
+
+const sayFromA = a.say;
+sayFromA.call(b);
+//!======================================================
+
+//!======================================================
+// TASK№8
+const obj = {
+  name: 'Nested',
+  outer: function () {
+    return {
+      inner: () => {
+        console.log(this.name);
+      },
+    };
+  },
+};
+
+const innerFn = obj.outer().inner;
+innerFn();
+//!======================================================
+
+//!======================================================
+// TASK№9
+const obj = {
+  method: function () {
+    console.log(this);
+  },
+};
+
+const other = {
+  method: obj.method,
+};
+
+const copy = other.method;
+copy();
+//!======================================================
+
+//!======================================================
+// TASK№10
+function A() {
+  this.name = 'Function A';
+  return {
+    name: 'Returned Object',
+    getThis: function () {
+      console.log(this.name);
+    },
+  };
+}
+
+const result = new A();
+result.getThis();
 ```
