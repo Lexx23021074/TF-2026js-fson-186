@@ -77,17 +77,17 @@
 
 // Виконай рефакторинг функції таким чином, щоб замість циклу for, вона використовувала метод forEach.
 
-function filterArray(numbers, value) {
-    let arrayOf = [];
-    numbers.forEach(function (item) {
-        if (item > value) {
-            arrayOf.push(item);
-        }
-    });
-    return arrayOf;
-}
-console.log(filterArray([1, 2, 3, 4, 5], 3) )//повертає [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4))// повертає [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5) )//повертає []
-console.log(filterArray([12, 24, 8, 41, 76], 38) )//повертає [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20) )//повертає [24, 41, 76]
+// function filterArray(numbers, value) {
+//     let arrayOf = [];
+//     numbers.forEach(function (item) {
+//         if (item > value) {
+//             arrayOf.push(item);
+//         }
+//     });
+//     return arrayOf;
+// }
+// console.log(filterArray([1, 2, 3, 4, 5], 3) )//повертає [4, 5]
+// console.log(filterArray([1, 2, 3, 4, 5], 4))// повертає [5]
+// console.log(filterArray([1, 2, 3, 4, 5], 5) )//повертає []
+// console.log(filterArray([12, 24, 8, 41, 76], 38) )//повертає [41, 76]
+// console.log(filterArray([12, 24, 8, 41, 76], 20) )//повертає [24, 41, 76]
