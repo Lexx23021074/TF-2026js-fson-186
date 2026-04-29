@@ -1,0 +1,3 @@
+
+filter users.filter(user => user.age >= minAge && user.age <= maxAge)  з вихідного масиву users філтруємо user:age , якщо більше мін, а менше макс — всі значення будуть загнані в результат масивом
+users.filter(user => user.eyeColor === color)   те саме тільки одна умова що дорінює color все буде загнане в новий масив 
