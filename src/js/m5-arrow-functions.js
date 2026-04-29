@@ -70,17 +70,19 @@
 // console.log(calculateTotalPrice([412, 371, 94, 63, 176])); //повертає 1116
 // // Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 //=================TASK==============================================
-const  filterArray = (numbers, value) =>{
-    let filteredArray = [];
+// const  filterArray = (numbers, value) =>{
+//     let filteredArray = [];
 
-numbers.forEach(number => {
-    if (number > value) filteredArray.push(number);
-  });
-    return filteredArray;
-}
+// numbers.forEach(number => {
+//     if (number > value) filteredArray.push(number);
+//   });
+//     return filteredArray;
+// }
 
-console.log(filterArray([1, 2, 3, 4, 5], 3));// повертає [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4));// повертає [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5));// повертає []
-console.log(filterArray([12, 24, 8, 41, 76], 38));// повертає [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20));// повертає [24, 41, 76]
+// console.log(filterArray([1, 2, 3, 4, 5], 3));// повертає [4, 5]
+// console.log(filterArray([1, 2, 3, 4, 5], 4));// повертає [5]
+// console.log(filterArray([1, 2, 3, 4, 5], 5));// повертає []
+// console.log(filterArray([12, 24, 8, 41, 76], 38));// повертає [41, 76]
+// console.log(filterArray([12, 24, 8, 41, 76], 20));// повертає [24, 41, 76]
+
+
